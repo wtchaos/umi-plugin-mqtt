@@ -1,0 +1,23 @@
+{
+  "name": "umi-plugin-mqtt",
+  "version": "1.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "father-build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "async": "npm run build && yalc push",
+    "pub": "pnpm build && npm publish"
+  },
+  "keywords": [],
+  "author": "tchaos",
+  "dependencies": {
+    "mqtt": "^4.3.7"
+  },
+  "devDependencies": {
+    "father-build": "^1.22.5",
+    "typescript": "^5.0.3",
+    "webpack": "^5.78.0"
+  },
+  "license": "ISC"
+}
