@@ -43,7 +43,7 @@ export default function MqttProvider(props: any) {
 
   useEffect(()=> {
     const url = '${protocol}://${host}:${port}${path || ''}';
-    setClient(mqtt(url, {}));
+    setClient(mqtt(url, mqttRuntimeConfig?.options || {}));
   }, [])
 
   useEffect(()=> {
@@ -66,6 +66,9 @@ export default function MqttProvider(props: any) {
       client.on('message', (topic, message) => {
         const payload = { topic, message: message.toString() };
         mqttRuntimeConfig?.onMessage?.(payload);
+      });
+      client.on('close', () => {
+        mqttRuntimeConfig?.onClose?.();
       });
     }
   }, [client]);
