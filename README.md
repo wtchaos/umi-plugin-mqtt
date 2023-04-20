@@ -38,7 +38,7 @@ export const mqtt = {
 
 ### Example
 ```js
-import React, { useEffect, useCallback } from 'reacr';
+import React, { useEffect, useCallback } from 'react';
 import { useMqtt } from '@umijs/max';
 
 export default ()=> {
