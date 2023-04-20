@@ -74,7 +74,7 @@ export default function MqttProvider(props: any) {
   }, [client]);
 
   return (
-    <MqttContext.Provider value={client}>
+    <MqttContext.Provider value={{ client }}>
       {props.children}
     </MqttContext.Provider>
   );

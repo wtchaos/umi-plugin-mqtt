@@ -1,7 +1,7 @@
 {
   "name": "umi-plugin-mqtt",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.3",
+  "description": "A umi plugin that integrates mqtt.js functions",
   "main": "lib/index.js",
   "scripts": {
     "build": "father-build",
@@ -10,7 +10,7 @@
     "pub": "pnpm build && npm publish"
   },
   "keywords": [],
-  "author": "tchaos",
+  "author": "tchaos<tchaos.w@gmail.com>",
   "dependencies": {
     "mqtt": "^4.3.7"
   },
@@ -19,5 +19,8 @@
     "typescript": "^5.0.3",
     "webpack": "^5.78.0"
   },
-  "license": "ISC"
+  "peerDependencies": {
+    "umi": ">=3"
+  },
+  "license": "MIT"
 }
