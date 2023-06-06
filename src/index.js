@@ -1,3 +1,6 @@
+import { dirname } from 'path';
+import { winPath } from './utils/index';
+
 export default (api)=> {
   api.describe({
     config: {
@@ -17,6 +20,7 @@ export default (api)=> {
   api.addRuntimePlugin(() => [`${api.paths.absTmpPath}/plugin-mqtt/runtime.tsx`]);
 
   api.onGenerateFiles(()=> {
+    const mqttLibPath = winPath(dirname(require.resolve('mqtt')));
     const { host, port, protocol, path } = api.config.mqtt;
 
     //context.ts
@@ -33,7 +37,7 @@ export const MqttContext = React.createContext<any>(null);
       path: 'Provider.tsx',
       content: `
 import React, { useState, useEffect } from 'react';
-import mqtt from '${require.resolve('mqtt')}';
+import mqtt from '${mqttLibPath}';
 import { mqtt as mqttRuntimeConfig } from '@/app';
 import { MqttContext } from './context';
 
@@ -102,7 +106,7 @@ export function rootContainer (container) => container
       path: 'index.tsx',
       content: `
 import React, { useContext } from 'react';
-import mqtt from '${require.resolve('mqtt')}';
+import mqtt from '${mqttLibPath}';
 import { MqttContext } from './context';
 
 export { mqtt };

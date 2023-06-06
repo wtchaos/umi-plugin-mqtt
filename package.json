@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-mqtt",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A umi plugin that integrates mqtt.js functions",
   "main": "lib/index.js",
   "scripts": {
